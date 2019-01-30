@@ -32,10 +32,13 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.0.47'
 
     //JSON
-    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    compile group: 'org.json', name: 'json', version: '20180813'
+
+
     //OKHttp
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
 
     //h2
     implementation 'com.h2database:h2'
+
 }

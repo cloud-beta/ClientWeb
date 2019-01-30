@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    This is Survey Web!
+
+    <h1> Thank You! </h1>
+    Please check your email for further instructions on how to complete your account setup.
 </body>
 </html>
