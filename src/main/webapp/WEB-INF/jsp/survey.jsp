@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,15 +23,14 @@
 <div class="container">
     <div class="row">
         <div class="col">
-
-            <form action="/dosurvey" method="post">
+            <form:form action="/dosurvey" method="post" modelAttribute="surveyData">
                 <p><strong> 성별 </strong></p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="sex" id="man" class="custom-control-input">
+                    <input type="radio" name="gender" id="man" class="custom-control-input" value="male">
                     <label class="custom-control-label" for="man">남성</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="sex" id="woman" class="custom-control-input">
+                    <input type="radio" name="gender" id="woman" class="custom-control-input" value="female">
                     <label class="custom-control-label" for="woman">여성</label>
                 </div>
 
@@ -38,73 +38,86 @@
 
                 <p><strong> 연령대 </strong></p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="generation" id="generation10" class="custom-control-input">
-                    <label class="custom-control-label" for="generation10">10대</label>
+                    <input type="radio" name="age" id="age10" class="custom-control-input" value="10">
+                    <label class="custom-control-label" for="age10">10대</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="generation" id="generation20" class="custom-control-input">
-                    <label class="custom-control-label" for="generation20">20대</label>
+                    <input type="radio" name="age" id="age20" class="custom-control-input" value="20">
+                    <label class="custom-control-label" for="age20">20대</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="generation" id="generation30" class="custom-control-input">
-                    <label class="custom-control-label" for="generation30">30대</label>
+                    <input type="radio" name="age" id="age30" class="custom-control-input" value="30">
+                    <label class="custom-control-label" for="age30">30대</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="generation" id="generation40" class="custom-control-input">
-                    <label class="custom-control-label" for="generation40">40대</label>
+                    <input type="radio" name="age" id="age40" class="custom-control-input" value="40">
+                    <label class="custom-control-label" for="age40">40대</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="generation" id="generation50" class="custom-control-input">
-                    <label class="custom-control-label" for="generation50">50대 이상</label>
+                    <input type="radio" name="age" id="age50" class="custom-control-input" value="50">
+                    <label class="custom-control-label" for="age50">50대</label>
+                </div>
+
+                <div class="custom-control custom-radio">
+                    <input type="radio" name="age" id="ageOver" class="custom-control-input" value="over 50">
+                    <label class="custom-control-label" for="ageOver">50대 이상</label>
                 </div>
 
                 <br><br>
 
                 <p><strong> 연봉 </strong></p>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="salaray" id="salaray2" class="custom-control-input">
-                    <label class="custom-control-label" for="salaray2">2000이상 3000미만</label>
+                    <input type="radio" name="salary" id="salarayUnder" class="custom-control-input" value="under 2000">
+                    <label class="custom-control-label" for="salarayUnder">2000 이하</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="salaray" id="salaray3" class="custom-control-input">
-                    <label class="custom-control-label" for="salaray3">3000이상 4000미만</label>
+                    <input type="radio" name="salary" id="salaray2000" class="custom-control-input" value="2000">
+                    <label class="custom-control-label" for="salaray2000">2000</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="salaray" id="salaray4" class="custom-control-input">
-                    <label class="custom-control-label" for="salaray4">40000이상 5000미만</label>
+                    <input type="radio" name="salary" id="salaray3000" class="custom-control-input" value="3000">
+                    <label class="custom-control-label" for="salaray3000">3000</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="salaray" id="salaray5" class="custom-control-input">
-                    <label class="custom-control-label" for="salaray5">5000이상</label>
+                    <input type="radio" name="salary" id="salaray4000" class="custom-control-input" value="4000">
+                    <label class="custom-control-label" for="salaray4000">4000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" name="salary" id="salaray5000" class="custom-control-input" value="5000">
+                    <label class="custom-control-label" for="salaray5000">4000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" name="salary" id="salarayOver" class="custom-control-input" value="over 5000">
+                    <label class="custom-control-label" for="salarayOver">4000</label>
                 </div>
 
                 <br><br>
 
                 ${restaurantName} 의 평점은 ?
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="estimate" id="estimate1" class="custom-control-input">
-                    <label class="custom-control-label" for="estimate1"> 1 </label>
+                    <input type="radio" name="rate" id="rate1" class="custom-control-input" value="worst">
+                    <label class="custom-control-label" for="rate1"> 매우 불만족 </label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="estimate" id="estimate2" class="custom-control-input">
-                    <label class="custom-control-label" for="estimate2"> 2 </label>
+                    <input type="radio" name="rate" id="rate2" class="custom-control-input" value="bad">
+                    <label class="custom-control-label" for="rate2"> 불만족 </label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="estimate" id="estimate" class="custom-control-input">
-                    <label class="custom-control-label" for="estimate"> 3 </label>
+                    <input type="radio" name="rate" id="rate3" class="custom-control-input" value="soso">
+                    <label class="custom-control-label" for="rate3"> 보통 </label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="estimate" id="estimate4" class="custom-control-input">
-                    <label class="custom-control-label" for="estimate4"> 4 </label>
+                    <input type="radio" name="rate" id="rate4" class="custom-control-input" value="good">
+                    <label class="custom-control-label" for="rate4"> 만족 </label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" name="estimate" id="estimate5" class="custom-control-input">
-                    <label class="custom-control-label" for="estimate5"> 5 </label>
+                    <input type="radio" name="rate" id="rate5" class="custom-control-input" value="best">
+                    <label class="custom-control-label" for="rate5"> 매우 만족 </label>
                 </div>
 
                 <br><br>
                 <input class="btn btn-primary btn-lg" type="submit" value="제출"/>
-            </form>
+            </form:form>
 
         </div>
     </div>
